@@ -1,3 +1,4 @@
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -16,9 +17,11 @@ interface Props {
 
 const RootLayout = ({ children }: Props) => {
   return (
-    <html>
-      <body className={font.className}>{children}</body>
-    </html>
+    <ClerkProvider afterSignOutUrl="/">
+      <html>
+        <body className={font.className}>{children}</body>
+      </html>
+    </ClerkProvider>
   );
 };
 
