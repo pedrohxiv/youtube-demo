@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "@/styles/globals.css";
+import { TRPCProvider } from "@/trpc/client";
 
 const font = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,9 @@ const RootLayout = ({ children }: Props) => {
   return (
     <ClerkProvider afterSignOutUrl="/">
       <html>
-        <body className={font.className}>{children}</body>
+        <body className={font.className}>
+          <TRPCProvider>{children}</TRPCProvider>
+        </body>
       </html>
     </ClerkProvider>
   );
