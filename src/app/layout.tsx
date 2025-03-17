@@ -2,6 +2,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import { Toaster } from "@/components/ui/sonner";
 import "@/styles/globals.css";
 import { TRPCProvider } from "@/trpc/client";
 
@@ -21,7 +22,10 @@ const RootLayout = ({ children }: Props) => {
     <ClerkProvider afterSignOutUrl="/">
       <html>
         <body className={font.className}>
-          <TRPCProvider>{children}</TRPCProvider>
+          <TRPCProvider>
+            <Toaster />
+            {children}
+          </TRPCProvider>
         </body>
       </html>
     </ClerkProvider>
