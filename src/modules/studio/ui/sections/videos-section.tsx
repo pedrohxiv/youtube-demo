@@ -133,19 +133,25 @@ const VideosSectionSkeleton = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {Array.from({ length: 10 }).map((_, index) => (
+            {Array.from({ length: 5 }).map((_, index) => (
               <TableRow key={index}>
                 <TableCell>
-                  <Skeleton className="w-[350px] ml-1.5">&nbsp;</Skeleton>
+                  <div className="flex items-center gap-4">
+                    <Skeleton className="aspect-video w-36" />
+                    <div className="flex flex-col gap-y-1">
+                      <Skeleton className="text-sm w-[120px]">&nbsp;</Skeleton>
+                      <Skeleton className="text-xs w-[200px]">&nbsp;</Skeleton>
+                    </div>
+                  </div>
                 </TableCell>
                 <TableCell>
-                  <Skeleton className="w-[50px]">&nbsp;</Skeleton>
+                  <Skeleton className="w-[70px]">&nbsp;</Skeleton>
                 </TableCell>
                 <TableCell>
                   <Skeleton className="w-[40px]">&nbsp;</Skeleton>
                 </TableCell>
                 <TableCell>
-                  <Skeleton className="w-[30px]">&nbsp;</Skeleton>
+                  <Skeleton className="w-[90px]">&nbsp;</Skeleton>
                 </TableCell>
                 <TableCell>
                   <Skeleton className="w-[50px] ml-auto">&nbsp;</Skeleton>
