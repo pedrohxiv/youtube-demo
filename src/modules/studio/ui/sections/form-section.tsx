@@ -9,7 +9,6 @@ import {
   LockIcon,
   MoreVerticalIcon,
   RotateCcwIcon,
-  SparklesIcon,
   TrashIcon,
 } from "lucide-react";
 import Image from "next/image";
@@ -157,7 +156,11 @@ const FormSectionSuspense = ({ videoId }: Props) => {
             <div className="flex items-center gap-x-2">
               <Button
                 type="submit"
-                disabled={update.isPending || remove.isPending}
+                disabled={
+                  update.isPending ||
+                  remove.isPending ||
+                  !form.formState.isDirty
+                }
               >
                 Save
               </Button>
@@ -255,10 +258,6 @@ const FormSectionSuspense = ({ videoId }: Props) => {
                             >
                               <ImagePlusIcon className="size-4 mr-1" />
                               Change
-                            </DropdownMenuItem>
-                            <DropdownMenuItem className="cursor-pointer">
-                              <SparklesIcon className="size-4 mr-1" />
-                              AI-Generated
                             </DropdownMenuItem>
                             <DropdownMenuItem
                               onClick={() =>
