@@ -13,11 +13,15 @@ interface Props {
 
 export const VideoTopRow = ({ video }: Props) => {
   const compactViews = useMemo(() => {
-    return Intl.NumberFormat("en", { notation: "compact" }).format(100000);
+    return Intl.NumberFormat("en", { notation: "compact" }).format(
+      video.viewCount
+    );
   }, []);
 
   const expandedViews = useMemo(() => {
-    return Intl.NumberFormat("en", { notation: "standard" }).format(100000);
+    return Intl.NumberFormat("en", { notation: "standard" }).format(
+      video.viewCount
+    );
   }, []);
 
   const compactDate = useMemo(() => {
